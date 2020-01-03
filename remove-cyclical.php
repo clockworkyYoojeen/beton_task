@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: Remove Cyclical Links Plugin
+  Plugin Name: Remove Cyclical Links Plugin (Убирает циклические ссылки из меню)
   Description:  Заменяет тег 'a' на тег 'span' в тех пунктах меню, которые указывают на отображаемую страницу
   Version:      20160911
   Author:       Yoojeen
