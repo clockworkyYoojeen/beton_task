@@ -47,11 +47,9 @@ function rmc_admin_menu_option() {
             $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
         
             // при условии меняем html пункта меню
-            // if( $item->object_id == $post->ID  ) {
-            // 	$item_output = '<span>' . $item->title . '</span>';
-            // }
             $query_string = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-            if( $item->url === $query_string  ) {
+	    $query_stringS = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+            if( ($item->url === $query_string) ||  ($item->url === $query_stringS) ) {
                 $item_output = '<span>' . $item->title . '</span>';
             }
             // иначе выводим ссылкой как обычно
@@ -137,10 +135,6 @@ function rmc_settings_page() {
 
 // добавляем фильтр
 add_filter( 'wp_nav_menu_args', 'set_walker' );
-// add_filter('wp_nav_menu_args', function( $args ) use( $rmc_menus ){
-//     if(in_array($args['menu'], $rmc_menus)) $args['walker'] = new Change_Links_Walker();
-//     return $args;
-// } );
 
 function set_walker( $args ) {
     global $rmc_menus;
